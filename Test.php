@@ -26,15 +26,15 @@ function f($source, &$number)
 {
     foreach ($source as $key => $item) {
         if ($item == $number) {
-            yield $key => $item;
+            yield $key;
         }
     }
 }
 
 $buff = [];
 for ($i = 1; $i <= 3; $i++) {
-    foreach (f($result, $i) as $key => $item) {
-        $buff[$i][$key] = $item;
+    foreach (f($result, $i) as $item) {
+        $buff[$i][] = $item;
     }
 }
 
