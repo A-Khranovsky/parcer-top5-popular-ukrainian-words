@@ -33,7 +33,8 @@ function f($source, &$number)
 
 $buff = [];
 for ($i = 1; $i <= 3; $i++) {
-    foreach (f($result, $i) as $item) {
+    $q = f($result, $i);
+    foreach ($q as $item) {
         $buff[$i][] = $item;
     }
 }
