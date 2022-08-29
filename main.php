@@ -13,4 +13,11 @@ SOURCE);
 
 
 $obj = new Parcer(SOURCE);
-var_dump($obj->parse());
+
+foreach ($obj->parse() as $key => $value){
+    echo 'Top ' . $key . ' are: ';
+    foreach ($value as $item){
+        echo $item . ' ';
+    }
+    echo "\n";
+}
