@@ -42,11 +42,11 @@ class Parcer
     public function parse()
     {
         $result = [];
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 5; $i >= 1; $i--) {
             foreach ($this->popularCount($this->buffer, $i) as $item) {
                 $result[$i][] = $item;
             }
-            if(isset($result[$i])) {
+            if (isset($result[$i])) {
                 usort($result[$i], function ($first, $second) {
                     $first = preg_replace([
                         '/а/u', '/б/u', '/в/u', '/г/u', '/ґ/u', '/д/u', '/е/u', '/є/u', '/ж/u', '/з/u', '/и/u', '/і/u',
@@ -67,6 +67,7 @@ class Parcer
 
                     return $first <=> $second;
                 });
+                $result[$i] = array_slice($result[$i], 0, 5);
             }
         }
         return $result;
